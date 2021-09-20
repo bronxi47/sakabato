@@ -12,6 +12,23 @@
 #     6)If there are tasks in crontab. If that's the case, checks who are the
 #       users and their file permissions.
 
+cat <<!TITTLE!
+  ___ ___ __ ____ ___ ___________
+  | _\|  \| V \  \| .\|  \_ _\   |
+  [__ \ . \  <| . \ .<| . \||| . |
+  |___//\_//\_//\_/___//\_/|/|___/
+
+             by bronxi
+    https://github.com/bronxi47
+
+  *Sakabatō script checks the hardening
+   level in GNU/Linux server.
+  *This first version only have a basic
+   checks with 3 individual test.
+
+!TITTLE!
+
+
 
 #1
 if echo "The following users exist in the system. Use them to log in remotely (do not use root for this):" &&
