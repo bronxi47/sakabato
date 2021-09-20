@@ -19,9 +19,9 @@
 
 4) If the port number is default (in process).
 
-5) If firewall system is enable and only the minimum ports are allow (in process)
+5) If firewall system is enable and only the minimum ports are allow (in process).
 
-6) If there are tasks in crontab. If that's the case, checks who are the users and their file permissions (in process)
+6) If there are tasks in crontab. If that's the case, checks who are the users and their file permissions (in process).
 
 
 ### It's easy!
