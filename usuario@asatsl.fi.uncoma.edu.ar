@@ -24,7 +24,7 @@ cat <<!TITLE!
   *Sakabatō script checks the hardening
    level in GNU/Linux server.
   *This first version only have a basic
-   checks with 4 individual test.
+   checks with 3 individual test.
 
 !TITLE!
 
@@ -81,19 +81,37 @@ if [[ -f /etc/ssh/sshd_config ]]; then #Check if the configuration file exists.
   else
     echo "Something is wrong with the configuration of Password Authentication :("
   fi
+else
+  echo "The /etc/ssh/sshd_config file is not there, is ssh installed?"
+fi
 
 #4
   port=$(search "Port")
   firstCharacterPort=$(firstCharacter $port)
   lastStringPort=$(lastString $port)
-  if [[ $firstCharacterPort == '#' ]] || [[ $lastStringPort == '22' ]]; then
-    echo 'The port is set in default 22; Change this, uncomment and write another port number'
-
-  elif [[ $lastStringPort != '22' ]]; then
+  if [[ $firstCharacterPort == '#' ]] || [[ $lastStringPort = '22' ]]; then
+    echo 'The port is are set in default 22'
+    echo 'Change this: discomment and/or write another port number'
+  elif [[ $lastStringPort != 22 ]]; then
     echo 'The port is not default, great job!'
   else
     echo 'Something is wrong with the configuration of Port'
-  fi
-else
-  echo "The /etc/ssh/sshd_config file is not there, is ssh installed?"
-fi
+
+
+
+
+
+
+
+#if [[ -f /etc/ssh/sshd_config ]]; then
+#  loginRoot=$(grep PermitRootLogin /etc/ssh/sshd_config -m 1 | cut -d' ' -f2;)
+#    if [[ $loginRoot == yes ]]; then
+#      echo "Your Login as root is avaible, change to NO this line: PermitRootLogin yes to PermitRootLogin no"
+#    elif [[ $loginRoot == no ]]; then
+#      echo "Your Login as root is not avaible, great job!"
+#    else
+#      echo "Something was wrong :("
+#    fi
+#else
+#  echo "The file /etc/ssh/sshd_config is not there, ssh is install?"
+#fi

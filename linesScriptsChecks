@@ -1,0 +1,19 @@
+Formas de buscar y setear el yes en PermitRootLogin de sshd_config
+
+1
+set $(grep PermitRootLogin sshd_config)
+
+Guardarlo en una variable:
+
+var1=$2
+
+
+2
+grep PermitRootLogin sshd_config | cut -d' ' -f1;
+
+
+Guardarlo en una variable:
+var1=$(grep PermitRootLogin sshd_config | cut -d' ' -f2;)
+
+
+PasswordAuthentication
